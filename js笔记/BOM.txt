@@ -1,0 +1,84 @@
+
+1、页面加载事件
+window.onload = function(){} 页面加载完毕才会触发这个事件,包含dom元素 图片 flash css等
+DOMContentLoaded DOM加载完毕
+
+window.addEventListener('load',function(){
+
+})
+
+2、调整窗口大小事件
+窗口大小发生变化就触发该事件，
+经常利用这个事件完成响应式布局 window.innerWidth
+window.onresize = function(){}
+window.addEventListener("resize", function(){})
+
+3、定时器
+setTimeout()
+setInterval()
+
+（1）window.setTimeout(调用函数，[延迟的毫秒数]);
+该方法用于设置一个定时器，该定时器在定时器到期后执行调用函数
+setTimeout(function(){},1000)
+
+回调函数callback
+
+停止setTimeout()定时器：window.clearTimeout(timerId)
+
+(2)setInterval
+重复调用一个函数，每隔这个事件，就去调用一次回调函数
+
+4、this指向问题
+一般情况下this最终指向的是那个调用它的对象
+1）全局作用域或者普通函数中this指向全局对象window 
+2）方法调用中谁调用this指向谁
+3）构造函数中this指向构造函数的实例
+
+5、JS同步和异步
+同步：前一个任务结束后再执行后一个任务，程序的执行顺序和任务的排列顺序是一致的、同步的。
+异步：一件事情要花很长时间，在做这件事的同时，还可以去处理其他事情。
+
+同步任务都在主线程上执行，形成一个执行栈。
+JS的异步是通过回调函数实现的。一般而言，异步任务有以下三种类型：
+1）普通事件：如click、resize
+2）资源加载：如load、error
+3）定时器：setInterval、setTimeout
+
+异步任务相关回调函数添加到任务队列中。
+
+先执行执行栈中的同步任务，回调函数放到任务队列中，一旦执行栈中同步任务完成，再把异步任务放到执行栈中执行。
+
+事件循环。
+
+6、location对象
+
+URL 
+location对象属性：href host port pathname search hash
+location.href='http://www.baidu.com'  //跳转页面
+
+location对象方法：assign replace reload
+
+
+5秒钟后跳转页面：
+<body>
+    <button>点击</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        var timer = 5;
+        btn.addEventListener('click',function(){
+            location.href = 'http://www.itcast.cn';
+        }
+        setInterval( function (){
+        if(timer == 0 )
+            {
+                location.href = 'http://www.itcast.cn';
+            }else{
+                div.innerHTML = '您将在’+ timer +‘秒之后跳转到首页';
+                timer--;
+            }
+         }, 1000)
+        }
+    </script>
+</body>

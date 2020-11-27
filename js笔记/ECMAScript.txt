@@ -1,0 +1,290 @@
+ECMAScript：
+输入输出：
+    alert()
+    console.log()
+    prompt()  输入框
+
+变量：
+    声明变量，赋值
+    var age;
+    age=10;
+
+    var myname=prompt('请输入名字')；
+    alert(myname);
+
+    更新变量/声明多个变量，之间用逗号隔开
+    变量命名：区分大小写，不能以数字开头
+
+数据类型：
+    在程序运行时，数据的类型才被确定
+    简单数据类型：Number：
+                    二进制八进制十进制十六进制  
+                    非数字：NaN isNaN():用来判断非数字，并返回一个值。如果是数字返回false
+                string：
+                    '' " " 转义符\n \\ \' \" \t \b blank
+                    字符串长度：str.length
+                    字符串拼接：+ 字符串和其他类型的拼接还是字符串 
+                boolean：true-1 false-0
+                undefined：声明变量没有赋值 和数字相加是NaN
+                null：
+    复杂数据类型:
+    判断数据类型：
+        var num=10;
+        console.log(typeof num);
+    字面量：
+
+数据类型转换：
+    转换为字符：
+        toString()  num.toString
+        String(num)
+        加号拼接字符串-重点
+    转换为数字：
+        parseInt(String)  parseInt('78')
+        parseFloat(string)  parseFloat('78.21') parseFloat('120px')
+        Number() Number('12')
+        js隐式转换 '12'- 0
+    转换成布尔型：
+        Boolean()  Boolean('true')
+         0 NaN null undefined ''  ——转换成false
+
+标识符、关键字、保留字
+    标识符：开发人员取得名字，不能是关键字和保留字
+    保留字：预留的关键字
+
+运算符：
+    算术运算符：+ - * / % 
+    递增和递减运算符：++ --
+    比较运算符： > < >= <= == != ===(全等) !==
+    逻辑运算符：进行布尔值运算的运算符 && || ！   短路运算
+    赋值运算符：= += *= /= %=
+    运算符优先级：
+
+流程控制：
+    顺序流程控制
+    分支结构：
+        if 
+            if(){}
+            if(){}else{}
+            if else if 
+        switch 
+            switch(){case value1:执行语句; break; case value2:执行语句2；break;default;}
+    三元表达式: ? :
+    循环：for while do while 
+            do{}while()
+        continue 跳出本次循环继续下次循环 /  break：退出整个循环
+
+数组：
+    创建：(1) var array = new Array();
+         (2) var array=[]; array[1]
+    新增数组元素：修改长度-length； 修改索引号； 
+
+函数：
+    function sayHi()   sayHi();
+    function 函数名(形参1，形参2...){
+
+    }
+    函数名(实参1，实参2...)
+    形参和实参个数不匹配，实参多-取到形参的个数，少于-undefined
+    返回值：
+        return 返回值，终止函数，只能返回一个值  返回数组
+        没有return返回undefined
+    arguments : 
+        只有函数才有argument对象，每个函数都内置好了这个argument
+        里面存储所有传递过来的实参 展示形式伪数组-length,索引存储，没有数组的一些方法pop push
+   
+    函数的两种声明方式：
+        通过function关键字；(命名函数)
+        函数表达式：var 变量名 = function(){};
+
+
+作用域：全局作用域 局部作用域 没有块级作用域 作用域链
+
+预解析：把js里面的var和function提升到当前作用域的最前面，然后执行代码
+
+对象：
+    分为自定义对象，内置对象，浏览器对象；
+    (1)利用对象字面量创建对象：var obj={uname:'张三',age=18}
+    (2)利用new Object创建对象：var obj=new Object(); obj.age=18;
+    (3)利用构造函数创建对象：构造函数就是把对象里面相同的属性和方法抽象出来封装到函数里面  函数名大写; 不需要return; 调用必须使用new; 
+        function 构造函数名(){
+            this.属性 = 值；
+            this.方法=function(){}
+        }
+        new 构造函数名(); 
+
+        function Star(uname,age,sex){
+            this.name=uname;
+            this.age=age;
+            this.sex=sex;
+        }
+        var ldh = new Star('ldh',18,'男');
+
+    构造函数是泛指的某一大类，对象是特指一个具体的事务，利用构造函数创建对象的过程称为对象的实例化
+
+    new关键字执行过程：new构造函数可以在内存中创建一个空的对象，this就会指向刚才创建的空对象，执行构造函数里面的代码给空对象添加属性和方法，返回这个对象
+
+    遍历对象：
+        for(变量 in 对象)
+        for(var k in obj){
+            console.log(k) 得到的是属性名
+            console.log(obj[k]) 得到的是属性值
+        }
+
+内置对象：
+
+Math对象：
+    不是一个构造函数，不需要new
+    Math.abs(1); 1 绝对值
+    Math.floor(1.1);  1 向下取整
+    Math.ceil(1.1);  2 向上取整
+    Math.round(1.1); 1 四舍五入
+    Math.random(); 返回一个浮点数，[0，1)
+    Math.abs(): 返回数的绝对值
+
+日期对象：
+    是构造函数，必须使用new来调用创建日期对象
+    var date = new Date();
+    格式化年月日
+        var date=new Date();
+        date.getFullYear();
+        date.getMonth();  返回的月份小一个月
+        date.getDate();
+        date.getDay();
+        date.getHours();
+        date.getMinutes();
+        date.getSeconds();
+    获取日期的总的毫秒数：1970-1-1开始 
+        var date=new Date();  date.valueOf();
+        var date1 = +new Date(); ——最常用的写法
+        Data.now();  
+
+数组对象：
+    创建数组：
+        字面量； var arr[1,2,3];
+        利用new Array(); var arr1 = new Array(2); 数组长度为2 
+            new Array(2，3) ([2,3])
+    检测是否为数组：
+        instanceof 运算符：检测是否为数组 (arr instanceof Array);
+        Array.isArray(arr);
+    添加删除数组元素：
+        push()：在末尾添加一个或多个元素,push完原数组也会发生变化
+            var arr=[1,2]; arr.push(1,2,3);
+        unshift:在开头添加一个或多个元素；
+            arr.unshift(4);
+        pop(): 删除数组的最后一个元素；不跟参数；返回删除的那个元素；
+            arr.pop();
+        shift(): 删除数组的第一个元素；
+            arr.shift();
+    数组排序：
+        翻转数组：reverse()；
+            arr.reverse();
+            reverse() 方法用于颠倒数组中元素的顺序。
+
+        数组排序（冒泡排序）: arr.sort();
+            arr.sort(function(a,b){
+                return a-b;  升序的顺序排列；
+                return b-a;  降序排列；
+            })
+    数组索引方法：
+        indexOf();  arr.indexOf('blue'); 返回第一个索引号，不存在返回-1
+	                indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+        lastIndexOf(); 
+    
+    数组转换为字符串：  
+        toString(); arr.toString();
+                    toString(radix) 方法可把一个 Number 对象转换为一个字符串，并返回结果。
+                    radix可选。规定表示数字的基数，使 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。
+                    但是要注意，如果该参数是 10 以外的其他值，则 ECMAScript 标准允许实现返回任意值。
+        join(分隔符)：arr.join('-');
+
+        splice():  arrayObject.splice(index,howmany,item1,.....,itemX)
+                    index:必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置
+                    howmany:要删除的项目数量。如果设置为 0，则不会删除项目
+                    item: 向数组添加的新项目\
+
+        map: map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+             map() 方法按照原始数组元素顺序依次处理元素。
+             例：var numbers = [4, 9, 16, 25];
+             numbers.map(Math.sqrt); //2,3,4,5
+
+        filter:
+            filter用于对数组进行过滤。
+            它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+            例：let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                let res = nums.filter((num) => {
+                return num > 5;
+                });
+                console.log(res);  // [6, 7, 8, 9, 10]
+        
+字符串对象：
+    基本包装类型：把简单数据类型包装为复杂数据类型,这个简单数据类型就有了属性和方法；String、Number、Boolean；
+    字符串的不可变： 开辟新的内存空间；
+
+    根据字符返回位置：
+        indexOf();: str.indexOf('春',[3]); 从第三个开始查找春
+	                indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。 ]
+	                indexOf() 方法对大小写敏感,    如果要检索的字符串值没有出现，则该方法返回 -1。
+        lastIndexOf(): lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
+                    stringObject.lastIndexOf(searchvalue,fromindex)
+
+    根据位置返回字符： 
+        charAt(index):  根据位置返回字符；str.charAt(3);
+		charAt() 方法可返回指定位置的字符。 必需。表示字符串中某个位置的数字，即字符在字符串中的下标
+
+      charCodeAt(index):  返回相应索引号的字符ASCII值 目的：判断用户按下了哪个键； str.charCodeAt(0);
+        str[index]： str[0];
+
+    字符串操作方法：
+        concat('字符串1','字符串2'...)； 类似+号
+        substr(start,length):  str.substr(2,2) 2号位置取两个字符； 
+        slice(start,end):
+        substring(start,end):
+        replace：替换字符 replace('被替换的字符','替换为的字符') 只会替换第一个字符
+        spilt('分隔符'): 字符转换成数组 var str='1,2';  str.spilt(',');  
+
+其他：
+    charCodeAt：charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。
+                charAt() 方法可返回指定位置的字符。
+
+    parseInt() 函数可解析一个字符串，并返回一个整数。
+                parseInt(string, radix)   radix: 可选。表示要解析的数字的基数
+
+ES6:
+(1)ES6解构赋值交换变量的值:
+        let x = 1;
+        let y = 2;
+        [x, y] = [y, x];
+        console.log(x);//2
+        console.log(y);//1
+
+(2)set map
+    set:
+        Set是ES6新的数据结构，类似数组，但成员的值是唯一的，没有重复的值
+        let set = new Set(['a','e','i','o','u','A','E','I','O','U']);
+        let ss=new Set([1,2,3,3])
+        [...ss] //1,2,3
+        https://www.jianshu.com/p/80bf2e6139dc
+        set方法：add, delete, has, clear  
+                set.size //得到set的长度
+              
+        遍历方法：set.keys(), set.values(), set.entries(), set.forEach()
+        用于：数组去重：
+            const set = new Set();  //新建一个set
+            for (let i = 0; i < candies.length; i++) {
+                set.add(candies[i]);  //遍历set,将元素添加到set中，里面的元素不重复
+            }
+
+    map:
+        它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+        也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现
+            map.set()
+            map.has()
+            map.get()
+            
+(3)       
+        
+!!!!!注意！！！！
+
+        （1）= 和 == 和 === 不同
+        （2）'' 和 ' '是不一样的   
+        （3）' ' 和null是不一样的
