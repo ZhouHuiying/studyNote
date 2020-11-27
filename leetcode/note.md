@@ -19,7 +19,7 @@
 
 ### 二叉树：
   深度优先遍历 Depth-First-Search、广度优先遍历
-  例子：100.判断两个二叉树是否相同
+  ##### 例子：100.判断两个二叉树是否相同
      ```
       function isSameTree(p, q) {   
         if(p==null && q==null){
