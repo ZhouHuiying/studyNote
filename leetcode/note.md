@@ -54,7 +54,7 @@ set、map、hashMap、
 
 双指针法
 快慢指针
-回文链表：https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/
+[回文链表的例子](https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/)
 
 位运算
 
