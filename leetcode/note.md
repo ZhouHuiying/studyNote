@@ -20,6 +20,7 @@
 ### 二叉树：
   深度优先遍历 Depth-First-Search、广度优先遍历
   例子：100.判断两个二叉树是否相同
+     ```
       function isSameTree(p, q) {   
         if(p==null && q==null){
             return true;
@@ -31,6 +32,7 @@
             return isSameTree(p.left,q.left) && isSameTree(p.right , q.right);
         }
       };
+    ```
    二叉树的最大深度：深度优先遍历：分别计算左右子树中的最大深度 + 1
                   广度优点遍历：用队列。广度优先搜索的队列里存放的是「当前层的所有节点」。每次拓展下一层的时候，我们需要将队列里的所有节点都拿出来进行拓展，
                     这样能保证每次拓展完的时候队列里存放的是当前层的所有节点，即我们是一层一层地进行拓展，最后我们用一个变量 \textit{ans}ans 来维护拓展的次数，该二叉树的最大深度即为 \textit{ans}ans。

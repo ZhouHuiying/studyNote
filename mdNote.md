@@ -1,32 +1,33 @@
 # Markdown syntax guide
-
+  一级标题
 ## Headers
-
-# This is a Heading h1
+  二级标题
+# This is a Heading h1  
+   
 ## This is a Heading h2 
 ###### This is a Heading h6
-
+  六级标题
 ## Emphasis
 
 *This text will be italic*  
 _This will also be italic_
-
+  斜体
 **This text will be bold**  
 __This will also be bold__
-
+  加粗
 _You **can** combine them_
 
 ## Lists
 
 ### Unordered
-
+  无序列表，加 *
 * Item 1
 * Item 2
 * Item 2a
 * Item 2b
 
 ### Ordered
-
+  有序列表 加1.
 1. Item 1
 1. Item 2
 1. Item 3
