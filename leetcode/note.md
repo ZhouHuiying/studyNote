@@ -55,6 +55,20 @@
 set、map、hashMap、
   
 ### 动态规划DP
+    788. 旋转数字 (主要是末位以外的数字在计算该数字前肯定计算过了，所以可以动归。)
+    70. 爬楼梯
+    ```
+    var climbStairs = function(n) {
+    if(n===1) return 1;
+    let f=1,s=2;
+    for(let i=3; i<=n; i++){
+        let t=f+s;
+        f=s;
+        s=t;
+    }
+    return s;
+    };
+    ```
 
 双指针法
 快慢指针
