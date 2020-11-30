@@ -1,7 +1,9 @@
 ### 循环、判断
-  while for if-else 
+  ##### while 
+  for 
+    if-else 
 
-### 正则 reg.test( )
+### 正则 reg.test()
 
 ### 位运算
 
@@ -18,7 +20,9 @@
 ### 链表
 
 ### 二叉树：
-  深度优先遍历 Depth-First-Search、广度优先遍历
+  #### 深度优先遍历 Depth-First-Search、
+  #### 广度优先遍历
+      层序遍历：637.（广度优先遍历）
   ##### 例子：100.判断两个二叉树是否相同
      ```
       function isSameTree(p, q) {   
@@ -56,11 +60,19 @@ set、map、hashMap、
 快慢指针
 [回文链表的例子](https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/)
 
+贪心算法
+
 位运算
 
 例子： 
   杨辉三角  
-  二分查找  367：有效的完全平方数
+  二分查找  367：有效的完全平方数 / 704 二分查找
+    ```
+    二分查找是一种基于比较目标值和数组中间元素的教科书式算法。
+    如果目标值等于中间元素，则找到目标值。
+    如果目标值较小，继续在左侧搜索。
+    如果目标值较大，则继续在右侧搜索
+    ```
   求和
   排序
  

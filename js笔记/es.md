@@ -179,7 +179,6 @@ Math对象：
         翻转数组：reverse()；
             arr.reverse();
             reverse() 方法用于颠倒数组中元素的顺序。
-
         数组排序（冒泡排序）: arr.sort();
             arr.sort(function(a,b){
                 return a-b;  升序的顺序排列；
@@ -216,6 +215,13 @@ Math对象：
                 });
                 console.log(res);  // [6, 7, 8, 9, 10]
         
+        reduce:
+            array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+            total: 必需。初始值, 或者计算结束后的返回值。
+            currentValue: 必需。当前元素。常用的参数：total currentValue
+            currentIndex: 可选。当前元素的索引
+            arr: 可选。当前元素所属的数组对象。
+        
 字符串对象：
     基本包装类型：把简单数据类型包装为复杂数据类型,这个简单数据类型就有了属性和方法；String、Number、Boolean；
     字符串的不可变： 开辟新的内存空间；
@@ -228,8 +234,10 @@ Math对象：
                     stringObject.lastIndexOf(searchvalue,fromindex)
 
     根据位置返回字符： 
-        charAt(index):  根据位置返回字符；str.charAt(3);
-		charAt() 方法可返回指定位置的字符。 必需。表示字符串中某个位置的数字，即字符在字符串中的下标
+        charAt(index):  根据位置返回字符；str.charAt(3); //查找第三个位置的字符
+                                        var str = "HELLO WORLD";
+                                        var n = str.charAt(2)
+		    charAt() 方法可返回指定位置的字符。 必需。表示字符串中某个位置的数字，即字符在字符串中的下标
 
       charCodeAt(index):  返回相应索引号的字符ASCII值 目的：判断用户按下了哪个键； str.charCodeAt(0);
         str[index]： str[0];
@@ -270,8 +278,11 @@ ES6:
         [...ss] //1,2,3
         https://www.jianshu.com/p/80bf2e6139dc
         set方法：add, delete, has, clear  
+                set.add(a) //添加元素
                 set.size //得到set的长度
-              
+                set.has(val) //has() 方法返回一个布尔值来指示对应的值value是否存在Set对象中。
+                set.delete(2);//删除某个值，返回一个布尔值，表示删除是否成功。
+                
         遍历方法：set.keys(), set.values(), set.entries(), set.forEach()
         用于：数组去重：
             const set = new Set();  //新建一个set
@@ -279,12 +290,14 @@ ES6:
                 set.add(candies[i]);  //遍历set,将元素添加到set中，里面的元素不重复
             }
 
+
     map:
         它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
         也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现
-            map.set()
-            map.has()
-            map.get()
+            const m = new Map();
+            m.set(o, 'content') //添加元素
+            m.has(o) //判断是否存在该元素
+            m.get('name') // "张三" 得到name对应的值
             
 (3)map 和 Hashmap ???       
         
