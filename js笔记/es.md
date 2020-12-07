@@ -101,10 +101,13 @@ ECMAScript：
 
 预解析：把js里面的var和function提升到当前作用域的最前面，然后执行代码
 
-对象：
+### 对象：
     分为自定义对象，内置对象，浏览器对象；
     (1)利用对象字面量创建对象：var obj={uname:'张三',age=18}
+
     (2)利用new Object创建对象：var obj=new Object(); obj.age=18;
+        JavaScript有个内嵌的方法create(), 它允许您基于现有对象创建新的对象: var person2 = Object.create(person1); 基于person1创建person2
+
     (3)利用构造函数创建对象：构造函数就是把对象里面相同的属性和方法抽象出来封装到函数里面  函数名大写; 不需要return; 调用必须使用new; 
         function 构造函数名(){
             this.属性 = 值；
@@ -129,10 +132,52 @@ ECMAScript：
             console.log(k) 得到的是属性名
             console.log(obj[k]) 得到的是属性值
         }
+    
+    原型链：
+        https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes
+        JavaScript 常被描述为一种基于原型的语言 (prototype-based language)——每个对象拥有一个原型对象，对象以其原型为模板、从原型继承方法和属性。原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为原型链 (prototype chain)，它解释了为何一个对象会拥有定义在其他对象中的属性和方法。
+        
+        每个函数都有一个特殊的属性叫作原型（prototype）。
+        ```
+        function doSomething(){}
+        console.log( doSomething.prototype );
+        ```
+        原型链中的方法和属性没有被复制到其他对象——它们被访问需要通过前面所说的“原型链”的方式。
+        prototype 属性：
+            以 Object.prototype. 开头的属性: prototype 属性的值是一个对象，我们希望被原型链下游的对象继承的属性和方法，都被储存在其中。
+            即：prototype 属性包含（指向）一个对象，你在这个对象中定义需要被继承的成员。
+            JavaScript 中到处都是通过原型链继承的例子:
+                var myString = 'This is my string.';
+                myString 立即具有了一些有用的方法，如 split()、indexOf()、replace() 等。
+        constructor 属性：
+            person1.constructor person2.constructor 都将返回 Person() 构造器，因为该构造器包含这些实例的原始定义。
+    
+    原型链继承（原型式继承）：
+        call()函数：这个函数允许调用一个在这个文件里别处定义的函数。 
+        eg:
+            ```
+            function Person(first, last, age, gender, interests) {
+                this.name = {
+                    first,
+                    last
+                };
+                this.age = age;
+                this.gender = gender;
+                this.interests = interests;
+            };
+            function Teacher(first, last, age, gender, interests, subject) {
+                Person.call(this, first, last, age, gender, interests);
 
-内置对象：
+                this.subject = subject;
+            }
+            ```
+    JavaScript Object Notation (JSON)
+            
 
-Math对象：
+
+#### 内置对象：
+
+##### Math对象：
     不是一个构造函数，不需要new
     Math.abs(1); 1 绝对值
     Math.floor(1.1);  1 向下取整
@@ -140,8 +185,9 @@ Math对象：
     Math.round(1.1); 1 四舍五入
     Math.random(); 返回一个浮点数，[0，1)
     Math.abs(): 返回数的绝对值
-
-日期对象：
+    Math.trunc(8.75): 返回数字的整数部分。 此方法不会将数字向上/向下舍入到最近的整数，而只是删除小数。
+    
+##### 日期对象：
     是构造函数，必须使用new来调用创建日期对象
     var date = new Date();
     格式化年月日
@@ -158,7 +204,7 @@ Math对象：
         var date1 = +new Date(); ——最常用的写法
         Data.now();  
 
-数组对象：
+##### 数组对象：
     创建数组：
         字面量； var arr[1,2,3];
         利用new Array(); var arr1 = new Array(2); 数组长度为2 
@@ -211,7 +257,7 @@ Math对象：
             它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
             例：let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                 let res = nums.filter((num) => {
-                return num > 5;
+                    return num > 5;
                 });
                 console.log(res);  // [6, 7, 8, 9, 10]
         
@@ -226,7 +272,7 @@ Math对象：
             concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。    
 
         
-字符串对象：
+##### 字符串对象：
     基本包装类型：把简单数据类型包装为复杂数据类型,这个简单数据类型就有了属性和方法；String、Number、Boolean；
     字符串的不可变： 开辟新的内存空间；
 
@@ -266,7 +312,9 @@ Math对象：
     parseInt() 函数可解析一个字符串，并返回一个整数。
                 parseInt(string, radix)   radix: 可选。表示要解析的数字的基数
 
-ES6:
+    
+
+### ES6:
 (1)ES6解构赋值交换变量的值:
         let x = 1;
         let y = 2;
@@ -293,7 +341,6 @@ ES6:
             for (let i = 0; i < candies.length; i++) {
                 set.add(candies[i]);  //遍历set,将元素添加到set中，里面的元素不重复
             }
-
 
     map:
         它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。

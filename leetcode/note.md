@@ -7,7 +7,7 @@
 
 ### 位运算
 
-## 数据结构：
+### 数据结构：
   数组、队列、栈、二叉树、堆、链表、
   队列：先进先出(FIFO-first in first out)    
     入队 unshift(): 它能在数组首端添加任意个项并返回新数组的长度   
@@ -44,7 +44,7 @@
                   广度优点遍历：用队列。广度优先搜索的队列里存放的是「当前层的所有节点」。每次拓展下一层的时候，我们需要将队列里的所有节点都拿出来进行拓展，
                     这样能保证每次拓展完的时候队列里存放的是当前层的所有节点，即我们是一层一层地进行拓展，最后我们用一个变量 \textit{ans}ans 来维护拓展的次数，该二叉树的最大深度即为 \textit{ans}ans。
 
-### 递归 recursion:
+## 递归 recursion:
 
 ### 迭代 iteration:
   递归是一个树结构，从字面可以其理解为重复“递推”和“回归”的过程，当“递推”到达底部时就会开始“回归”，其过程相当于树的深度优先遍历。
@@ -57,21 +57,47 @@ set、map、hashMap、
 ### 动态规划DP
     788. 旋转数字 (主要是末位以外的数字在计算该数字前肯定计算过了，所以可以动归。)
     70. 爬楼梯
-    ```
-    var climbStairs = function(n) {
-    if(n===1) return 1;
-    let f=1,s=2;
-    for(let i=3; i<=n; i++){
-        let t=f+s;
-        f=s;
-        s=t;
-    }
-    return s;
-    };
-    ```
+      ```
+      var climbStairs = function(n) {
+      if(n===1) return 1;
+      let f=1,s=2;
+      for(let i=3; i<=n; i++){
+          let t=f+s;
+          f=s;
+          s=t;
+      }
+      return s;
+      };
+      ```
+    746. 使用最小花费爬楼梯
 
-双指针法
-快慢指针
+### 双指针法
+快慢指针:
+  eg：876、[链表的中间结点] (https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/)
+    (1) 数组
+    ```
+      var middleNode = function(head) {
+        let A = [head];
+        while (A[A.length - 1].next != null)
+            A.push(A[A.length - 1].next);
+        return A[Math.trunc(A.length / 2)];
+      };
+    ```
+    (2) 单指针法
+
+    (3) 快慢指针法
+    ```
+      var middleNode = function(head) {
+        //用两个指针 slow 与 fast 一起遍历链表。slow 一次走一步，fast 一次走两步。那么当 fast 到达链表的末尾时，slow 必然位于中间。
+        slow = fast = head;
+        while (fast && fast.next) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+      };
+    ```
+    
 [回文链表的例子](https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/)
 
 贪心算法
@@ -81,6 +107,7 @@ set、map、hashMap、
 例子： 
   杨辉三角  
   二分查找  367：有效的完全平方数 / 704 二分查找
+
     ```
     二分查找是一种基于比较目标值和数组中间元素的教科书式算法。
     如果目标值等于中间元素，则找到目标值。
