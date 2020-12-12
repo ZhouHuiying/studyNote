@@ -72,7 +72,8 @@ set、map、hashMap、
     746. 使用最小花费爬楼梯
 
 ### 双指针法
-快慢指针:
+
+### 快慢指针:
   eg：876、[链表的中间结点] (https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/)
     (1) 数组
     ```
