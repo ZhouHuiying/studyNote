@@ -256,3 +256,10 @@ Sass:
   :expanded
   :compact
   :compressed
+
+### eg.
+
+  //计算当前div的宽度函数  传入的$n表示有几个div
+  @function flexWidth($n:2){
+    @return calc((100% - (#{$n} - 1) * 10px) / #{$n})
+  }
