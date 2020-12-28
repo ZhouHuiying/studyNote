@@ -28,6 +28,7 @@ ECMAScript：
                 undefined：声明变量没有赋值 和数字相加是NaN
                 null：
     复杂数据类型:
+    
     判断数据类型：
         var num=10;
         console.log(typeof num);
@@ -203,79 +204,7 @@ ECMAScript：
         var date=new Date();  date.valueOf();
         var date1 = +new Date(); ——最常用的写法
         Data.now();  
-
-##### 数组对象：
-    创建数组：
-        字面量； var arr[1,2,3];
-        利用new Array(); var arr1 = new Array(2); 数组长度为2 
-            new Array(2，3) ([2,3])
-    检测是否为数组：
-        instanceof 运算符：检测是否为数组 (arr instanceof Array);
-        Array.isArray(arr);
-    添加删除数组元素：
-        push()：在末尾添加一个或多个元素,push完原数组也会发生变化
-            var arr=[1,2]; arr.push(1,2,3);
-            push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度。
-            !!  注意返回值 !!
-        unshift:在开头添加一个或多个元素；
-            arr.unshift(4);
-        pop(): 删除数组的最后一个元素；不跟参数；返回删除的那个元素；
-            arr.pop();
-        shift(): 删除数组的第一个元素；
-            arr.shift();
-    数组排序：
-        翻转数组：reverse()；
-            arr.reverse();
-            reverse() 方法用于颠倒数组中元素的顺序。
-        数组排序（冒泡排序）: arr.sort();
-            arr.sort(function(a,b){
-                return a-b;  升序的顺序排列；
-                return b-a;  降序排列；
-            })
-    数组索引方法：
-        indexOf();  arr.indexOf('blue'); 返回第一个索引号，不存在返回-1
-	                indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
-        lastIndexOf(); 
-    
-    数组转换为字符串：  
-        toString(); arr.toString();
-                    toString(radix) 方法可把一个 Number 对象转换为一个字符串，并返回结果。
-                    radix可选。规定表示数字的基数，使 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。
-                    但是要注意，如果该参数是 10 以外的其他值，则 ECMAScript 标准允许实现返回任意值。
-        join(分隔符)：arr.join('-');
-
-        splice():  arrayObject.splice(index,howmany,item1,.....,itemX)
-                    index:必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置
-                    howmany:要删除的项目数量。如果设置为 0，则不会删除项目
-                    item: 向数组添加的新项目
-                    splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。该方法会改变原始数组。
-                    !!  注意函数的返回值 !!
-
-        map: map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
-             map() 方法按照原始数组元素顺序依次处理元素。
-             例：var numbers = [4, 9, 16, 25];
-             numbers.map(Math.sqrt); //2,3,4,5
-
-        filter:
-            filter用于对数组进行过滤。
-            它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
-            例：let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-                let res = nums.filter((num) => {
-                    return num > 5;
-                });
-                console.log(res);  // [6, 7, 8, 9, 10]
-        
-        reduce:
-            array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-            total: 必需。初始值, 或者计算结束后的返回值。
-            currentValue: 必需。当前元素。常用的参数：total currentValue
-            currentIndex: 可选。当前元素的索引
-            arr: 可选。当前元素所属的数组对象。
-        
-        concat:
-            concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。    
-
-        
+       
 ##### 字符串对象：
     基本包装类型：把简单数据类型包装为复杂数据类型,这个简单数据类型就有了属性和方法；String、Number、Boolean；
     字符串的不可变： 开辟新的内存空间；
