@@ -237,15 +237,15 @@ ECMAScript：
     js: 环境   全局环境不会被回收
         作用域：
 
-
-其他：
+##### 其他
     charCodeAt：charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。
                 charAt() 方法可返回指定位置的字符。
 
     parseInt() 函数可解析一个字符串，并返回一个整数。
                 parseInt(string, radix)   radix: 可选。表示要解析的数字的基数
 
-    
+    BigInt:
+        BigInt数据类型的目的是比Number数据类型支持的范围更大的整数值。在对大整数执行数学运算时，以任意精度表示整数的能力尤为重要。
 
 ### ES6:
 (1)ES6解构赋值交换变量的值:
