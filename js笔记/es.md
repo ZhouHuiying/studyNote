@@ -134,6 +134,20 @@ ECMAScript：
             console.log(obj[k]) 得到的是属性值
         }
     
+    删除对象属性：
+        eg.
+            var canPermutePalindrome = function(s) {
+                let obj = {};
+                for(let i=0; i<s.length; i++){
+                    let char = s[i];
+                    if(obj[char])
+                        delete obj[char]   //
+                    else
+                        obj[char] = 1;
+                }
+                return Object.keys(obj).length <= 1;
+            };  
+
     原型链：
         https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Object_prototypes
         JavaScript 常被描述为一种基于原型的语言 (prototype-based language)——每个对象拥有一个原型对象，对象以其原型为模板、从原型继承方法和属性。原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为原型链 (prototype chain)，它解释了为何一个对象会拥有定义在其他对象中的属性和方法。
