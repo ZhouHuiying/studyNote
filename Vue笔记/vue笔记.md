@@ -1,4 +1,4 @@
-VUE:
+### VUE:
 
 el:挂载点  建议使用ID选择器 可以使用其他标签 不要使用HTML
 data:数据对象 
@@ -21,7 +21,7 @@ data:数据对象
             })  
         </script>
 
-Vue指令：
+#### Vue指令：
     v-text:设置文本
     v-html:设置元素的innerHTML
 
@@ -31,21 +31,24 @@ Vue指令：
     v-if:根据表达式的真假，切换元素的显示状态(操纵dom元素)  表达式的值为真存在于dom树中
 
     v-bind:设置元素的属性( class title src),都写在元素的内部  v-bind:属性名=表达式；
-    v-for:根据数据生成列表结构
-    v-model:获取和设置表单元素的值，双向数据绑定
 
-官网笔记：
+    v-for:根据数据生成列表结构；
+
+    v-model:获取和设置表单元素的值，双向数据绑定；
+    
+
+#### 官网笔记：
     https://cn.vuejs.org/v2/api/
 
-    模板语法：
-        v-bind缩写：
-            <a v-bind:href="url">...</a>  
-            <a :href="url">...</a>
-            <a :[key]="url"> ... </a>
-        v-on缩写：
-            <a v-on:click="doSomething">...</a>
-            <a @click="doSomething">...</a>
-            <a @[event]="doSomething"> ... </a>
+##### 模板语法：
+    v-bind缩写：
+        <a v-bind:href="url">...</a>  
+        <a :href="url">...</a>
+        <a :[key]="url"> ... </a>
+    v-on缩写：
+        <a v-on:click="doSomething">...</a>
+        <a @click="doSomething">...</a>
+        <a @[event]="doSomething"> ... </a>
 
 
     计算属性，
@@ -98,13 +101,22 @@ Vue指令：
         在data 中定义初始化， loading: false，同时在mounted()中将 this.loading设置为true,再去请求接口
         在接口的回调函数中，将 this.loading 设为false，到达效果。
     
-    组件注册：组件注册的两种方式：全局注册（全局注册的组件都可以用）、局部注册（使用的时候需要引用）
-
+#### 组件注册：
+    组件注册的两种方式：全局注册（全局注册的组件都可以用）、局部注册（使用的时候需要引用）
+        全局注册: 
+            全局注册通过Vue.component方法，第一个参数为组件的名称，第二个参数为传入的配置项;
+            Vue.component('my-component-name', { /* ... */ })
+        局部注册：
+            局部注册只需在用到的地方通过components属性注册一个组件
+            
     prop的大小写：
         HTML 中的 attribute 名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。这意味着当你使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：
         在html中，传参数使用小写  :report-json=""
         可以传递静态或者动态的参数 可以传递很多类型 
 
         单向数据流：所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外变更父级组件的状态，从而导致你的应用的数据流向难以理解。
-        
 
+#### 知识点
+1、为什么v-for v-if不能一起用？
+    v-for优先级比v-if高，在进行if判断的时候，v-for是比v-if先进行判断；
+    把v-for和v-if用到一个元素上，会带来性能的浪费；为了避免这种情况，在外层嵌套template,在这一层进行v-if判断，在内部进行v-for循环。
