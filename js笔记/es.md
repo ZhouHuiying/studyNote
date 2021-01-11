@@ -302,6 +302,11 @@ ECMAScript：
             m.set(o, 'content') //添加元素
             m.has(o) //判断是否存在该元素
             m.get('name') // "张三" 得到name对应的值
+        eg. 遍历数组，将数组中每个元素出现的次数存储在map的value中。
+            let map = new Map();
+            for(item of deck){
+                map.set(item,map.has(item) ? map.get(item)+1 : 1);
+            }
             
 (3)map 和 Hashmap ???       
         
