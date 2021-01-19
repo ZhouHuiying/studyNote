@@ -75,34 +75,64 @@ set、map、hashMap、
       ```
     746. 使用最小花费爬楼梯
 
-### 双指针法
+### 指针:
+    指针的基本要素：起始值、终止值、方向（增减）、速度;
+    -双指针法  -单指针法
 
-### 快慢指针:
-  eg：876、[链表的中间结点] (https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/)
-    (1) 数组
-    ```
-      var middleNode = function(head) {
-        let A = [head];
-        while (A[A.length - 1].next != null)
-            A.push(A[A.length - 1].next);
-        return A[Math.trunc(A.length / 2)];
-      };
-    ```
-    (2) 单指针法
+#### 双指针法：
+    普通双指针、对撞双指针（指两个指针的方向相对）、快慢双指针（两个指针的方向相同但是移动的速度不一样）;
+    (1)快慢指针:
+      eg1：876、[链表的中间结点] (https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/)
+        (1) 数组
+        ```
+          var middleNode = function(head) {
+            let A = [head];
+            while (A[A.length - 1].next != null)
+                A.push(A[A.length - 1].next);
+            return A[Math.trunc(A.length / 2)];
+          };
+        ```
+        eg2:
+        ```
+          var middleNode = function(head) {
+            //用两个指针 slow 与 fast 一起遍历链表。slow 一次走一步，fast 一次走两步。那么当 fast 到达链表的末尾时，slow 必然位于中间。
+            slow = fast = head;
+            while (fast && fast.next) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return slow;
+          };
+        ```
+    (2)对撞双指针:
+      eg1:  LCP 18. 早餐组合   暴力法遍历会超出时间限制
+        ```
+        var breakfastNumber = function(staple, drinks, x) {
+          //排序
+          staple = staple.sort(function (a, b) {
+              return a - b;
+          });
+          drinks = drinks.sort(function (a, b) {
+              return a - b;
+          });
+          //双指针
+          let l1 = staple.length, l2 = drinks.length, result = 0;
+          let i = 0; j = l2 - 1;
+          while (i < l1 && j >= 0) {
+              if (staple[i] + drinks[j] <= x) {
+                  result += j + 1; //从大到小遍历，j符合,那小于这个价格的饮料都是符合的。
+                  i++;
+              } else {
+                  j--
+              };
+          }
 
-    (3) 快慢指针法
-    ```
-      var middleNode = function(head) {
-        //用两个指针 slow 与 fast 一起遍历链表。slow 一次走一步，fast 一次走两步。那么当 fast 到达链表的末尾时，slow 必然位于中间。
-        slow = fast = head;
-        while (fast && fast.next) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
+          return result % 1000000007; 
       };
-    ```
-    
+        ```
+
+
+        
 [回文链表的例子](https://leetcode-cn.com/problems/palindrome-linked-list/solution/hui-wen-lian-biao-by-leetcode-solution/)
 
 贪心算法
