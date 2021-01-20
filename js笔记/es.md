@@ -237,12 +237,13 @@ ECMAScript：
                     stringObject.lastIndexOf(searchvalue,fromindex)
 
     根据位置返回字符： 
-        charAt(index):  根据位置返回字符；str.charAt(3); //查找第三个位置的字符
-                                        var str = "HELLO WORLD";
-                                        var n = str.charAt(2)
-		    charAt() 方法可返回指定位置的字符。 必需。表示字符串中某个位置的数字，即字符在字符串中的下标
+        charAt(index):  根据位置返回字符；
+            str.charAt(3); //查找第三个位置的字符
+            var str = "HELLO WORLD";
+            var n = str.charAt(2)
+        charAt() 方法可返回指定位置的字符。 必需。表示字符串中某个位置的数字，即字符在字符串中的下标;
 
-      charCodeAt(index):  返回相应索引号的字符ASCII值 目的：判断用户按下了哪个键； str.charCodeAt(0);
+    charCodeAt(index):  返回相应索引号的字符ASCII值 目的：判断用户按下了哪个键； str.charCodeAt(0);
         str[index]： str[0];
 
     字符串操作方法：
