@@ -1,112 +1,114 @@
-ECMAScript：
-输入输出：
-    alert()
-    console.log()
-    prompt()  输入框
+## ECMAScript：
 
-变量：
-    声明变量，赋值
-    var age;
-    age=10;
+### 基础
+    输入输出：
+        alert()
+        console.log()
+        prompt()  输入框
 
-    var myname=prompt('请输入名字')；
-    alert(myname);
+    变量：
+        声明变量，赋值
+        var age;
+        age=10;
 
-    更新变量/声明多个变量，之间用逗号隔开
-    变量命名：区分大小写，不能以数字开头
+        var myname=prompt('请输入名字')；
+        alert(myname);
 
-数据类型：
-    在程序运行时，数据的类型才被确定
-    简单数据类型：Number：
-                    二进制八进制十进制十六进制  
-                    非数字：NaN isNaN():用来判断非数字，并返回一个值。如果是数字返回false
-                string：
-                    '' " " 转义符\n \\ \' \" \t \b blank
-                    字符串长度：str.length
-                    字符串拼接：+ 字符串和其他类型的拼接还是字符串 
-                boolean：true-1 false-0
-                undefined：声明变量没有赋值 和数字相加是NaN
-                null：
-    复杂数据类型:
+        更新变量/声明多个变量，之间用逗号隔开
+        变量命名：区分大小写，不能以数字开头
+
+    数据类型：
+        在程序运行时，数据的类型才被确定
+        简单数据类型：Number：
+                        二进制八进制十进制十六进制  
+                        非数字：NaN isNaN():用来判断非数字，并返回一个值。如果是数字返回false
+                    string：
+                        '' " " 转义符\n \\ \' \" \t \b blank
+                        字符串长度：str.length
+                        字符串拼接：+ 字符串和其他类型的拼接还是字符串 
+                    boolean：true-1 false-0
+                    undefined：声明变量没有赋值 和数字相加是NaN
+                    null：
+        复杂数据类型:
+        
+        判断数据类型：
+            var num=10;
+            console.log(typeof num);
+        字面量：
+
+    数据类型转换：
+        转换为字符：
+            toString()  num.toString
+            String(num)
+            加号拼接字符串-重点
+        转换为数字：
+            parseInt(String)  parseInt('78')
+            parseFloat(string)  parseFloat('78.21') parseFloat('120px')
+            Number() Number('12')
+            js隐式转换 '12'- 0
+        转换成布尔型：
+            Boolean()  Boolean('true')
+            0 NaN null undefined ''  ——转换成false
+
+    标识符、关键字、保留字
+        标识符：开发人员取得名字，不能是关键字和保留字
+        保留字：预留的关键字
+
+    运算符：
+        算术运算符：+ - * / % 
+        递增和递减运算符：++ --
+        比较运算符： > < >= <= == != ===(全等) !==
+        逻辑运算符：进行布尔值运算的运算符 && || ！   短路运算
+        赋值运算符：= += *= /= %=
+        运算符优先级：
+
+        位运算符：
+            异或： ^
+                先将两个数据转化为二进制数，然后进行按位异或运算，只要位不同结果为1，不然结果为0，可以发现按位异或就是不进位加法.
+            与： &
+            或： |
+
+    流程控制：
+        顺序流程控制
+        分支结构：
+            if 
+                if(){}
+                if(){}else{}
+                if else if 
+            switch 
+                switch(){case value1:执行语句; break; case value2:执行语句2；break;default;}
+        三元表达式: ? :
+        循环：for while do while 
+                do{}while()
+            continue 跳出本次循环继续下次循环 /  break：退出整个循环
+
+    数组：
+        创建：(1) var array = new Array();
+            (2) var array=[]; array[1]
+        新增数组元素：修改长度-length； 修改索引号； 
+
+    函数：
+        function sayHi()   sayHi();
+        function 函数名(形参1，形参2...){
+
+        }
+        函数名(实参1，实参2...)
+        形参和实参个数不匹配，实参多-取到形参的个数，少于-undefined
+        返回值：
+            return 返回值，终止函数，只能返回一个值  返回数组
+            没有return返回undefined
+        arguments : 
+            只有函数才有argument对象，每个函数都内置好了这个argument
+            里面存储所有传递过来的实参 展示形式伪数组-length,索引存储，没有数组的一些方法pop push
     
-    判断数据类型：
-        var num=10;
-        console.log(typeof num);
-    字面量：
-
-数据类型转换：
-    转换为字符：
-        toString()  num.toString
-        String(num)
-        加号拼接字符串-重点
-    转换为数字：
-        parseInt(String)  parseInt('78')
-        parseFloat(string)  parseFloat('78.21') parseFloat('120px')
-        Number() Number('12')
-        js隐式转换 '12'- 0
-    转换成布尔型：
-        Boolean()  Boolean('true')
-         0 NaN null undefined ''  ——转换成false
-
-标识符、关键字、保留字
-    标识符：开发人员取得名字，不能是关键字和保留字
-    保留字：预留的关键字
-
-运算符：
-    算术运算符：+ - * / % 
-    递增和递减运算符：++ --
-    比较运算符： > < >= <= == != ===(全等) !==
-    逻辑运算符：进行布尔值运算的运算符 && || ！   短路运算
-    赋值运算符：= += *= /= %=
-    运算符优先级：
-
-    位运算符：
-        异或： ^
-            先将两个数据转化为二进制数，然后进行按位异或运算，只要位不同结果为1，不然结果为0，可以发现按位异或就是不进位加法.
-        与： &
-        或： |
-
-流程控制：
-    顺序流程控制
-    分支结构：
-        if 
-            if(){}
-            if(){}else{}
-            if else if 
-        switch 
-            switch(){case value1:执行语句; break; case value2:执行语句2；break;default;}
-    三元表达式: ? :
-    循环：for while do while 
-            do{}while()
-        continue 跳出本次循环继续下次循环 /  break：退出整个循环
-
-数组：
-    创建：(1) var array = new Array();
-         (2) var array=[]; array[1]
-    新增数组元素：修改长度-length； 修改索引号； 
-
-函数：
-    function sayHi()   sayHi();
-    function 函数名(形参1，形参2...){
-
-    }
-    函数名(实参1，实参2...)
-    形参和实参个数不匹配，实参多-取到形参的个数，少于-undefined
-    返回值：
-        return 返回值，终止函数，只能返回一个值  返回数组
-        没有return返回undefined
-    arguments : 
-        只有函数才有argument对象，每个函数都内置好了这个argument
-        里面存储所有传递过来的实参 展示形式伪数组-length,索引存储，没有数组的一些方法pop push
-   
-    函数的两种声明方式：
-        通过function关键字；(命名函数)
-        函数表达式：var 变量名 = function(){};
+        函数的两种声明方式：
+            通过function关键字；(命名函数)
+            函数表达式：var 变量名 = function(){};
 
 
-作用域：全局作用域 局部作用域 没有块级作用域 作用域链
+    作用域：全局作用域 局部作用域 没有块级作用域 作用域链
 
-预解析：把js里面的var和function提升到当前作用域的最前面，然后执行代码
+    预解析：把js里面的var和function提升到当前作用域的最前面，然后执行代码
 
 ### 对象：
     分为自定义对象，内置对象，浏览器对象；
@@ -196,7 +198,7 @@ ECMAScript：
             
 
 
-#### 内置对象：
+### 内置对象：
 
 ##### Math对象：
     不是一个构造函数，不需要new
@@ -207,6 +209,13 @@ ECMAScript：
     Math.random(); 返回一个浮点数，[0，1)
     Math.abs(): 返回数的绝对值
     Math.trunc(8.75): 返回数字的整数部分。 此方法不会将数字向上/向下舍入到最近的整数，而只是删除小数。
+
+    eg.
+    (1)求两点之间的距离：
+        var pos = cc.v2(100,200);
+        var pos2 = cc.v2(300,400);
+        var distance = Math.sqrt(Math.pow(pos.x - pos2.x, 2) + Math.pow(pos.y - pos2.y, 2));
+    (2)
     
 ##### 日期对象：
     是构造函数，必须使用new来调用创建日期对象
@@ -230,7 +239,7 @@ ECMAScript：
     字符串的不可变： 开辟新的内存空间；
 
     根据字符返回位置：
-        indexOf();: str.indexOf('春',[3]); 从第三个开始查找春
+        indexOf(): str.indexOf('春',[3]); 从第三个开始查找春
 	                indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。 ]
 	                indexOf() 方法对大小写敏感,    如果要检索的字符串值没有出现，则该方法返回 -1。
         lastIndexOf(): lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
@@ -308,6 +317,7 @@ ECMAScript：
             for(item of deck){
                 map.set(item,map.has(item) ? map.get(item)+1 : 1);
             }
+        遍历map:
             
 (3)map 和 Hashmap ???       
         
